@@ -48,17 +48,17 @@ const Reports = () => {
                   value={"Search"}
                 />
               </div>
-              <article className={"flex items-center gap-x-10"}>
-                <div className={"opacity-70 md:w-[50%]"}>
-                  <input
-                    className={"p-1.5 w-8/12 bg-[#1E284C] text-start rounded-lg shadow-2xl"}
-                    value={"Price List"}
-                  />
-                </div>
-                <div className={""}>
-                  <p className={"bg-green-700 p-1 md:p-2 bg-[#1E284C] rounded-lg shadow-2xl"}>Generate Now</p>
-                </div>
-              </article>
+              {/*<article className={"flex items-center gap-x-10"}>*/}
+              {/*  <div className={"opacity-70 md:w-[50%]"}>*/}
+              {/*    <input*/}
+              {/*      className={"p-1.5 w-8/12 bg-[#1E284C] text-start rounded-lg shadow-2xl"}*/}
+              {/*      value={"Price List"}*/}
+              {/*    />*/}
+              {/*  </div>*/}
+              {/*  <div className={""}>*/}
+              {/*    <p className={"bg-green-700 p-1 md:p-2 bg-[#1E284C] rounded-lg shadow-2xl"}>Generate Now</p>*/}
+              {/*  </div>*/}
+              {/*</article>*/}
             </section>
 
             <hr className={"mt-3 border-1 border-gray-700"}/>
@@ -82,28 +82,28 @@ const Reports = () => {
 
       </article>
 
-      <article className={"px-4 my-3 flex justify-center flex-col md:flex-row md:gap-x-1 lg:w-full lg:gap-x-4"}>
-        {icons.map((item) => {
-          const {id, icon, rightArrow, name} = item;
-          return (
-            <div className={"flex justify-center my-2"}>
-              <button key={id} className={"bg-green-700 hover:bg-green-800  lg:text-xl flex items-center gap-x-5 py-2 rounded-lg px-3 lg:px-6 lg:py-3 text-white"}>
-                {icon}
-                <p>{name}</p>
-                <p className={"bg-gray-400 p-1 rounded-3xl"}>
-                  <p className={"text-sm text-gray-600"}>{rightArrow}</p>
-                </p>
-              </button>
-            </div>
-          )
-        })}
-      </article>
-      <article className={"flex justify-between text-white px-4 md:text-lg py-4"}>
-        <button className={"gap-x-3 p-1 border flex items-center"}>
-          <FaAngleLeft />
-          Previous
-        </button>
-      </article>
+      {/*<article className={"px-4 my-3 flex justify-center flex-col md:flex-row md:gap-x-1 lg:w-full lg:gap-x-4"}>*/}
+      {/*  {icons.map((item) => {*/}
+      {/*    const {id, icon, rightArrow, name} = item;*/}
+      {/*    return (*/}
+      {/*      <div className={"flex justify-center my-2"}>*/}
+      {/*        <button key={id} className={"bg-green-700 hover:bg-green-800  lg:text-xl flex items-center gap-x-5 py-2 rounded-lg px-3 lg:px-6 lg:py-3 text-white"}>*/}
+      {/*          {icon}*/}
+      {/*          <p>{name}</p>*/}
+      {/*          <p className={"bg-gray-400 p-1 rounded-3xl"}>*/}
+      {/*            <p className={"text-sm text-gray-600"}>{rightArrow}</p>*/}
+      {/*          </p>*/}
+      {/*        </button>*/}
+      {/*      </div>*/}
+      {/*    )*/}
+      {/*  })}*/}
+      {/*</article>*/}
+      {/*<article className={"flex justify-between text-white px-4 md:text-lg py-4"}>*/}
+      {/*  <button className={"gap-x-3 p-1 border flex items-center"}>*/}
+      {/*    <FaAngleLeft />*/}
+      {/*    Previous*/}
+      {/*  </button>*/}
+      {/*</article>*/}
     </section>
 
   )

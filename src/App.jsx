@@ -8,11 +8,11 @@ import Reports from "./component/Reports";
 const App = () => {
   return (
     <section className={"bg-[url('images/img.png')]"}>
-      <Officer />
+      {/*<Officer />*/}
       <Password />
       <ChangePassword />
-      <Details />
-      <SpeedViolation />
+      {/*<Details />*/}
+      {/*<SpeedViolation />*/}
       <Reports />
       {/*<h1>Hello</h1>*/}
     </section>
