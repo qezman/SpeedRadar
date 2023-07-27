@@ -35,10 +35,10 @@ export const violations = [
 ]
 
 export const reports = [
-  {id: 1, name: "15th December 2018"},
-  {id: 2, name: "23rd November 2020"},
-  {id: 3, name: "13th July 2021"},
-  {id: 4, name: "20th April 2023"},
+  {id: 1, speed: 198},
+  {id: 2, speed: 178},
+  {id: 3, speed: 159},
+  {id: 4, speed: 200},
 ]
 
 export default details
