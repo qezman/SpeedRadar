@@ -71,18 +71,35 @@ const Reports = () => {
 
             <hr className={"mt-3 border-1 border-gray-700"} />
 
-            <article className={"p-4 flex flex-col items-start"}>
-              <h3>Vehicle Speed</h3>
+            <table className="border-separate border-spacing-2 border border-slate-500 ...">
+              <thead>
+              <tr>
+                <th className="border border-slate-600 ...">State</th>
+                <th className="border border-slate-600 ...">City</th>
+                <th className="border border-slate-600 ...">City</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td className="border border-slate-700 ...">Indiana</td>
+                <td className="border border-slate-700 ...">Indianapolis</td>
+                <td className="border border-slate-700 ...">Metro</td>
+              </tr>
+              <tr>
+                <td className="border border-slate-700 ...">Ohio</td>
+                <td className="border border-slate-700 ...">Columbus</td>
+                <td className="border border-slate-700 ...">Otario</td>
+              </tr>
+              <tr>
+                <td className="border border-slate-700 ...">Michigan</td>
+                <td className="border border-slate-700 ...">Detroit</td>
+                <td className="border border-slate-700 ...">NY</td>
+              </tr>
+              </tbody>
 
-              {reports.map((detail) => {
-                const { id, speed } = detail;
-                return (
-                  <section key={id}>
-                    <p> {speed} </p>
-                  </section>
-                );
-              })}
-            </article>
+            </table>
+
+
           </section>
         </section>
       </article>
