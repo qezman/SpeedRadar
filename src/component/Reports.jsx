@@ -74,27 +74,12 @@ const Reports = () => {
             <table className="border-separate border-spacing-2 border border-slate-500 ...">
               <thead>
               <tr>
-                <th className="border border-slate-600 ...">State</th>
-                <th className="border border-slate-600 ...">City</th>
-                <th className="border border-slate-600 ...">City</th>
+                <th className="border border-slate-600 ...">ID</th>
+                <th className="border border-slate-600 ...">Speed</th>
+                <th className="border border-slate-600 ...">Date/Time</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td className="border border-slate-700 ...">Indiana</td>
-                <td className="border border-slate-700 ...">Indianapolis</td>
-                <td className="border border-slate-700 ...">Metro</td>
-              </tr>
-              <tr>
-                <td className="border border-slate-700 ...">Ohio</td>
-                <td className="border border-slate-700 ...">Columbus</td>
-                <td className="border border-slate-700 ...">Otario</td>
-              </tr>
-              <tr>
-                <td className="border border-slate-700 ...">Michigan</td>
-                <td className="border border-slate-700 ...">Detroit</td>
-                <td className="border border-slate-700 ...">NY</td>
-              </tr>
               </tbody>
 
             </table>
