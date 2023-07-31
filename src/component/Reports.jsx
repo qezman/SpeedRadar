@@ -1,10 +1,44 @@
+import React from 'react';
 import { FaUser } from "react-icons/fa";
 import { RxTriangleDown } from "react-icons/rx";
 import speedGun from "../images/speed_gun.png";
 import { HiBars3 } from "react-icons/hi2";
-import { reports } from "../data";
+
+import { getData } from "../firebase/database";
 
 const Reports = () => {
+
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);  
+  const [speeds, setSpeeds] = React.useState([]);
+  const [search, setSearch] = React.useState("");
+
+  const searchedSpeeds = React.useMemo(() => {
+    if (search) {
+      const newSpeeds =  speeds.filter(speed => {
+        if (speed.id.toString().includes(search)) return true;
+        if (speed.speed.toString().includes(search)) return true;
+        if (speed.date.toString().includes(search)) return true;
+        return false;
+      })
+      return newSpeeds
+    }
+    return speeds
+  }, [search, speeds])
+
+  React.useEffect(() => {
+    getData({
+      onSuccess(data) {
+        setSpeeds(data);
+        setLoading(false)
+      },
+      onError(error) {
+        setError(error)
+        setLoading(false)
+      }
+    })
+  }, [])
+
   return (
     <section className={"h-full text-center pt-20 lg:pt-10"}>
       <article className={"lg:py-16"}>
@@ -19,6 +53,11 @@ const Reports = () => {
             <p> John Doe </p> <RxTriangleDown />
           </div>
         </div>
+
+          {error && (
+            
+            <div className='block'>{error.message}</div>
+          )}
 
         {/*Speed Gun*/}
         <section className={"mt-10 px-3 text-sm md:text-lg md:flex"}>
@@ -48,7 +87,7 @@ const Reports = () => {
 
               <div className={"flex justify-center items-center gap-x-3"}>
                 <p> Number of Vehicles </p>
-                <button className={"px-2 rounded-2xl bg-[#1E284C]"}> 2</button>
+                <button className={"px-2 rounded-2xl bg-[#1E284C]"}> {loading ? '---' : searchedSpeeds.length}</button>
               </div>
             </article>
 
@@ -61,7 +100,10 @@ const Reports = () => {
                   className={
                     "w-9/12 md:w-full p-1.5 bg-[#1E284C] text-start rounded-lg shadow-2xl"
                   }
-                  value={"Search"}
+                 placeholder={"Search"}
+                  type={"search"}
+                  onChange={({ target: { value }}) => setSearch(value)}
+                  value={search}
                 />
               </div>
 
@@ -71,37 +113,34 @@ const Reports = () => {
 
             <hr className={"mt-3 border-1 border-gray-700"} />
 
-            <table className="border-separate border-spacing-2 border border-slate-500 ...">
+            {loading ? (
+              <h1 className="text-center text-xl text-gray-100">Loading...</h1>
+            ) : <table className="border-separate border-spacing-2 border border-slate-500 ...">
               <thead>
               <tr>
-                <th className="border border-slate-600 ...">ID</th>
-                <th className="border border-slate-600 ...">Speed</th>
-                <th className="border border-slate-600 ...">Date/Time</th>
+                <th className="border border-slate-600 ">S/N</th>
+                <th className="border border-slate-600 ">ID</th>
+                <th className="border border-slate-600 ">Speed</th>
+                <th className="border border-slate-600 ">Date/Time</th>
               </tr>
               </thead>
               <tbody>
+                  {searchedSpeeds.map((speed, index) => (
+                    <tr key={index}>
+                      <td className='border border-slate-600'>{index + 1}</td>
+                      <td className='border border-slate-600'>{speed.id}</td>
+                      <td className='border border-slate-600'>{speed.speed}</td>
+                      <td className='border border-slate-600'>{speed.date}</td>
+                    </tr>
+                  ))}
               </tbody>
 
-            </table>
+            </table>}
 
 
           </section>
         </section>
       </article>
-      {/*<article className={"px-4 my-3 flex justify-center flex-col md:flex-row md:gap-x-1 lg:w-full lg:gap-x-4"}>*/}{" "}
-      {/*  {icons.map((item) => {*/}{" "}
-      {/*    const {id, icon, rightArrow, name} = item;*/} {/*    return (*/}{" "}
-      {/*      <div className={"flex justify-center my-2"}>*/}{" "}
-      {/*        <button key={id} className={"bg-green-700 hover:bg-green-800  lg:text-xl flex items-center gap-x-5 py-2 rounded-lg px-3 lg:px-6 lg:py-3 text-white"}>*/}{" "}
-      {/*          {icon}*/} {/*          <p>{name}</p>*/}{" "}
-      {/*          <p className={"bg-gray-400 p-1 rounded-3xl"}>*/}{" "}
-      {/*            <p className={"text-sm text-gray-600"}>{rightArrow}</p>*/}{" "}
-      {/*          </p>*/} {/*        </button>*/} {/*      </div>*/}{" "}
-      {/*    )*/} {/*  })}*/} {/*</article>*/}{" "}
-      {/*<article className={"flex justify-between text-white px-4 md:text-lg py-4"}>*/}{" "}
-      {/*  <button className={"gap-x-3 p-1 border flex items-center"}>*/}{" "}
-      {/*    <FaAngleLeft />*/} {/*    Previous*/} {/*  </button>*/}{" "}
-      {/*</article>*/}{" "}
     </section>
   );
 };
