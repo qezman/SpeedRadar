@@ -19,6 +19,7 @@ const Reports = () => {
         if (speed.id.toString().includes(search)) return true;
         if (speed.speed.toString().includes(search)) return true;
         if (speed.date.toString().includes(search)) return true;
+        if (speed.time.toString().includes(search)) return true;
         return false;
       })
       return newSpeeds
@@ -40,19 +41,8 @@ const Reports = () => {
   }, [])
 
   return (
-    <section className={"h-full text-center pt-20 lg:pt-10"}>
+    <section className={"h-fully text-center pt-0 lg:pt-10"}>
       <article className={"lg:py-16"}>
-        <div
-          className={
-            "text-sm md:text-lg py-1 px-3 flex justify-between bg-[#312C6C] text-white"
-          }
-        >
-          <p> Administrator Board </p>
-          <div className={"flex justify-center items-center gap-x-1"}>
-            <FaUser />
-            <p> John Doe </p> <RxTriangleDown />
-          </div>
-        </div>
 
           {error && (
             
@@ -64,16 +54,15 @@ const Reports = () => {
           <div className={"hidden md:flex md:flex-col md:items-start"}>
             <p
               className={
-                "font-bold text-lg text-[#262A53] shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+                "font-bold text-3xl text-[#262A53] shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
               }
             >
-              {" "}
-              SpeedApp{" "}
-            </p>{" "}
+              SpeedApp
+            </p>
             <img src={speedGun} className={"mt-2 w-3/12 md:w-5/12"} alt="" />
           </div>
 
-          {/*vehicle Details Container*/}
+          {/*Speed Violation Container*/}
           <section
             className={
               "opacity-80 rounded-lg bg-[#312C6C] text-white flex flex-col md:w-full"
@@ -81,35 +70,36 @@ const Reports = () => {
           >
             <article className={"px-4 flex justify-between gap-x-4 py-2"}>
               <div className={"flex items-center gap-x-2"}>
-                <HiBars3 />
-                <p> Speed Violation </p>
+                {/* <HiBars3 /> */}
+                <p className='text-xl shadow-xl  font-semibold'> Speed Violation </p>
               </div>
+
+               {/*Search*/}
+            
 
               <div className={"flex justify-center items-center gap-x-3"}>
-                <p> Number of Vehicles </p>
+                <p className=' font-semibold'> Number of Vehicles </p>
                 <button className={"px-2 rounded-2xl bg-[#1E284C]"}> {loading ? '---' : searchedSpeeds.length}</button>
               </div>
-            </article>
 
-            {/*Search, Price list, Generate New*/}
-            <section
-              className={"px-4 flex items-center justify-between text-xs"}
+              <section
+              className={"px-4 text-lg"}
             >
-              <div className={"opacity-70 md:w-[30%]"}>
+              <div className={"opacity-70 md:w-[80%]"}>
                 <input
                   className={
-                    "w-9/12 md:w-full p-1.5 bg-[#1E284C] text-start rounded-lg shadow-2xl"
+                    "p-1.5 bg-[#1E284C] text-start rounded-lg shadow-2xl"
                   }
-                 placeholder={"Search"}
+                 placeholder={"Search..."}
                   type={"search"}
                   onChange={({ target: { value }}) => setSearch(value)}
                   value={search}
                 />
               </div>
-
-
-
             </section>
+            </article>
+
+           
 
             <hr className={"mt-3 border-1 border-gray-700"} />
 
@@ -120,8 +110,9 @@ const Reports = () => {
               <tr>
                 <th className="border border-slate-600 ">S/N</th>
                 <th className="border border-slate-600 ">ID</th>
-                <th className="border border-slate-600 ">Speed</th>
-                <th className="border border-slate-600 ">Date/Time</th>
+                <th className="border border-slate-600 ">SPEED</th>
+                <th className="border border-slate-600 ">DATE</th>
+                {/* <th className="border border-slate-600 ">Time</th> */}
               </tr>
               </thead>
               <tbody>
@@ -131,6 +122,7 @@ const Reports = () => {
                       <td className='border border-slate-600'>{speed.id}</td>
                       <td className='border border-slate-600'>{speed.speed}</td>
                       <td className='border border-slate-600'>{speed.date}</td>
+                      {/* <td className='border border-slate-600'>{speed.time}</td> */}
                     </tr>
                   ))}
               </tbody>

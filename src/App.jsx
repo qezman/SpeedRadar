@@ -9,6 +9,7 @@ import Reports from "./component/Reports";
 const App = () => {
   return (
     <section className={"bg-[url('images/img.png')]"}>
+      <div className="text-center pt-5 text-3xl text-white font-semibold uppercase">Terrestrial Speed Radar Logs</div>
       {/*<Officer />*/}
       {/* <Password /> */}
       {/* <ChangePassword /> */}
