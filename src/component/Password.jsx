@@ -9,13 +9,13 @@ const Password = () => {
         </div>
         <input
           type="text"
-          className={"outline-none bg-[#2E3D72] py-1 px-6 mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"}
+          className={"outline-none bg-[#111010] py-1 px-6 mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"}
         />
         <div className={"py-1"}>
-          <p className={"text-sm lg:text-lg text-white"}>Forget Password? <span className={"text-[#2E3D72] cursor-pointer hover:text-indigo-300"}>Click here</span></p>
+          <p className={"text-sm lg:text-lg text-white"}>Forget Password? <span className={"text-gray-200 cursor-pointer hover:text-gray-700"}>Click here</span></p>
         </div>
         <div className={"mt-8"}>
-          <button className={"outline-none bg-[#2E3D72] text-2xl px-8 py-1 text-white"}>Login</button>
+          <button className={"outline-none bg-[#111010] text-2xl px-8 py-1 text-white"}>Login</button>
         </div>
       </article>
     </section>

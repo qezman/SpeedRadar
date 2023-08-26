@@ -7,7 +7,6 @@ import { HiBars3 } from "react-icons/hi2";
 import { getData } from "../firebase/database";
 
 const Reports = () => {
-
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);  
   const [speeds, setSpeeds] = React.useState([]);
@@ -41,11 +40,10 @@ const Reports = () => {
   }, [])
 
   return (
-    <section className={"h-fully text-center pt-0 lg:pt-10"}>
+    <section className={"h-full text-center pt-0 lg:pt-10"}>
       <article className={"lg:py-16"}>
 
           {error && (
-            
             <div className='block'>{error.message}</div>
           )}
 
@@ -71,14 +69,14 @@ const Reports = () => {
             <article className={"px-4 flex justify-between gap-x-4 py-2"}>
               <div className={"flex items-center gap-x-2"}>
                 {/* <HiBars3 /> */}
-                <p className='text-xl shadow-xl  font-semibold'> Speed Violation </p>
+                <p className='text-xl shadow-xl font-semibold'>Speed Violation </p>
               </div>
 
                {/*Search*/}
             
 
               <div className={"flex justify-center items-center gap-x-3"}>
-                <p className=' font-semibold'> Number of Vehicles </p>
+                <p className='font-semibold'> Number of Vehicles </p>
                 <button className={"px-2 rounded-2xl bg-[#1E284C]"}> {loading ? '---' : searchedSpeeds.length}</button>
               </div>
 
@@ -112,7 +110,7 @@ const Reports = () => {
                 <th className="border border-slate-600 ">ID</th>
                 <th className="border border-slate-600 ">SPEED</th>
                 <th className="border border-slate-600 ">DATE</th>
-                {/* <th className="border border-slate-600 ">Time</th> */}
+                <th className="border border-slate-600 ">Time</th>
               </tr>
               </thead>
               <tbody>
@@ -120,9 +118,12 @@ const Reports = () => {
                     <tr key={index}>
                       <td className='border border-slate-600'>{index + 1}</td>
                       <td className='border border-slate-600'>{speed.id}</td>
-                      <td className='border border-slate-600'>{speed.speed}</td>
+                      <td className='border border-slate-600'>{speed.speed}
+                      {/* {speed.length ? 60 (<p className='text-green-500'>{speed.speed}</p>) : (<p className='text-red-500'>{speed.speed}</p>)} */}
+
+                      </td>
                       <td className='border border-slate-600'>{speed.date}</td>
-                      {/* <td className='border border-slate-600'>{speed.time}</td> */}
+                      <td className='border border-slate-600'>{speed.time}</td>
                     </tr>
                   ))}
               </tbody>

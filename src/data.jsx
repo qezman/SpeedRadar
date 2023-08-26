@@ -35,10 +35,20 @@ export const violations = [
 ]
 
 export const reports = [
-  {id: 1, speed: 198, Date: "24th Jan 2023"},
-  {id: 2, speed: 178, Date: "12th Jan 2023"},
-  {id: 3, speed: 159, Date: "5th Jan 2023"},
-  {id: 4, speed: 200, Date: "10th Jan 2023"},
+  {SN: 1, id: "ID1", speed: 198, Date: "24th Jan 2023", Time: "05:23:24", title: "s/n"},
+  {SN: 2, id: "ID2", speed: 178, Date: "12th Jan 2023", Time: "05:23:24", title: "id"},
+  {SN: 3, id: "ID3", speed: 159, Date: "5th Jan 2023", Time: "05:23:24", title: "speed"},
+  {SN: 4, id: "ID4", speed: 200, Date: "10th Jan 2023", Time: "05:23:24", title: "date"},
+  {SN: 5, id: "ID5", speed: 178, Date: "12th Jan 2023", Time: "05:23:24", title: "time"},
+  // {SN: 6, id: "ID", speed: 159, Date: "5th Jan 2023", Time: "05:23:24"},
+]
+
+export const  testing = [
+  {title: "SN", id: 1, speed: 198, Date: "24th Jan 2023", Time: "05:23:24"},
+  {title: "ID", id: 2, speed: 198, Date: "24th Jan 2023", Time: "05:23:24" },
+  {title: "SPEED", id: 3, speed: 198, Date: "24th Jan 2023", Time: "05:23:24"},
+  {title: "DATE", id: 4, speed: 198, Date: "24th Jan 2023", Time: "05:23:24"},
+  {title: "TIME", id: 5, speed: 198, Date: "24th Jan 2023", Time: "05:23:24"},
 ]
 
 export default details
