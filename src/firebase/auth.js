@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { signInWithEmailAndPassword, signOut, updatePassword } from 'firebase/auth';
 import { auth } from '.';
 
 function handleError(error) {
@@ -57,6 +57,29 @@ export function logout() {
 	});
 }
 
+// Change the user password
+export function changePassword(password) {
+	return new Promise((resolve, reject) => {
+		try {
+			if (!auth.currentUser)
+				throw new Error('Authentication credentials were not provided!');
+			updatePassword(auth.currentUser, password)
+				.then(() => {
+					resolve({
+						message: 'Password updated successfully!',
+					});
+				})
+				.catch((err) => {
+					const error = handleError(err);
+					reject(error);
+				});
+		} catch (err) {
+			const error = handleError(err);
+			reject(error);
+		}
+	});
+}
+
 /*
 import {
 	sendPasswordResetEmail,
@@ -86,29 +109,6 @@ export function resetPassword({ email }) {
 				});
 		} catch (err) {
 			const error = handleError(error);
-			reject(error);
-		}
-	});
-}
-
-// Update/Change user password
-export function changePassword({ password }) {
-	return new Promise((resolve, reject) => {
-		try {
-			if (!auth.currentUser)
-				throw new Error('Authentication credentials were not provided!');
-			updatePassword(auth.currentUser, password)
-				.then(() => {
-					resolve({
-						message: 'Password updated successfully!',
-					});
-				})
-				.catch((err) => {
-					const error = handleError(err);
-					reject(error);
-				});
-		} catch (err) {
-			const error = handleError(err);
 			reject(error);
 		}
 	});

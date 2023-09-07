@@ -12,6 +12,8 @@ const SpeedViolation = () => {
   const [speeds, setSpeeds] = React.useState([]);
   const [search, setSearch] = React.useState("");
 
+  const changePasswordRef = React.useRef();
+
   const searchedSpeeds = React.useMemo(() => {
     if (search) {
       const newSpeeds = speeds.filter((speed) => {
@@ -62,6 +64,17 @@ const SpeedViolation = () => {
             onChange={({ target: { value } }) => setSearch(value)}
             value={search}
           />
+        </div>
+        <div className="">
+          <button 
+          className="px-6 py-3 rounded-md cursor-pointer transform transition active:scale-95 duration-300 bg-neutral-600"
+          onClick={() => {
+            if (changePasswordRef.current) {
+              changePasswordRef.current.open()
+            }
+          }}>
+            Change Password
+          </button>
         </div>
         <div className="">
           <LogoutButton />
@@ -124,6 +137,7 @@ const SpeedViolation = () => {
           </div>
 
           
+          <ChangePassword ref={changePasswordRef} />
 
           {/* <article className="border rounded-lg mt-4 h-full">
             <div className="px-6 text-small lg:text-2xl font-bold flex justify-between items-center py-3">
