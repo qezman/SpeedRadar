@@ -1,6 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 
+import ResetPassword from "./Password";
 import { emailPasswordLogin } from "../firebase/auth";
 
 // eslint-disable-next-line react/prop-types
@@ -11,6 +12,8 @@ const Login = () => {
   });
 
   const [loading, setLoading] = React.useState(false);
+
+  const passwordResetRef = React.useRef();
 
   const handleChange = React.useCallback(({ target: { name, value } }) => {
     setForm((prevState) => ({
@@ -47,6 +50,7 @@ const Login = () => {
   );
 
   return (
+    <>
     <section className={"h-screen text-center pt-20 lg:pt-10"}>
       <form
         onSubmit={handleSubmit}
@@ -57,14 +61,14 @@ const Login = () => {
         <div>
           <h1
             className={
-              "text-4xl lg:text-6xl text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+              "text-4xl lg:text-6xl text-gray-300 font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
             }
           >
             SpeedApp
           </h1>
           <p
             className={
-              "text-2xl lg:text-4xl pt-10 text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+              "text-2xl lg:text-4xl pt-10 text-gray-300 text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
             }
           >
             Login
@@ -80,7 +84,7 @@ const Login = () => {
             type="email"
             name="email"
             className={
-              "text-gray-500 outline-none bg-[#2E3D72] py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+              "text-gray-500 bg-gray-800 outline-none transparent py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
             }
             value={form.email}
             placeholder="Enter Email address"
@@ -95,7 +99,7 @@ const Login = () => {
             name="password"
             onChange={handleChange}
             className={
-              "text-gray-500 outline-none bg-[#2E3D72] py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+              "text-gray-500 bg-gray-800 outline-none transparent py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
             }
             value={form.password}
             disabled={loading}
@@ -104,15 +108,26 @@ const Login = () => {
         <div className={"mt-8"}>
           <button
             className={
-              "outline-none bg-[#2E3D72] text-2xl px-8 py-1 text-white"
+              "border rounded  hover:bg-gray-800 text-2xl px-8 py-1 text-gray-400"
             }
             disabled={loading}
           >
             {loading ? 'Loading...' : 'Login'}
           </button>
         </div>
+        <p 
+            onClick={() => {
+                if (passwordResetRef.current) {
+                    passwordResetRef.current.open()
+                }
+            }}
+            className="text-right cursor-pointer mt-3 pr-8 text-gray-400 italic active:scale-x-95 transform transition hover:underline">
+              Reset Password
+            </p>
       </form>
     </section>
+    <ResetPassword ref={passwordResetRef} />
+</>
   );
 };
 export default Login;

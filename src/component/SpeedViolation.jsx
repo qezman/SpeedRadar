@@ -46,7 +46,7 @@ const SpeedViolation = () => {
     <section className="text-white w-full pb-8 pt-4 mt-4">
       <ChangePassword />
       {error && <div className="block">{error.message}</div>}
-      <article className="flex justify-between gap-x-4 items-center px-4 md:px-10">
+      <article className="md:flex md:justify-between gap-x-4 items-center px-4 md:px-10">
         <div className="flex items-center gap-x-1 md:gap-x-3">
           <p className="text-xs md:text-lg">Number of Vehicles</p>
           <p className="px-2 rounded-2xl text-black bg-[#D9D9D9;]">
@@ -57,7 +57,7 @@ const SpeedViolation = () => {
         <div className={""}>
           <input
             className={
-              "p-1.5 text-start rounded-lg shadow-2xl bg-black opacity-25 text-white border border-white"
+              "my-2 p-1.5 text-start rounded-lg shadow-2xl bg-black opacity-25 text-white border border-white"
             }
             placeholder={"Search..."}
             type={"search"}
@@ -67,7 +67,7 @@ const SpeedViolation = () => {
         </div>
         <div className="">
           <button 
-          className="px-6 py-3 rounded-md cursor-pointer transform transition active:scale-95 duration-300 bg-neutral-600"
+          className="p-1 md:px-6 md:py-3 rounded-md cursor-pointer transform transition active:scale-95 duration-300 bg-[#1E282D] hover:animate-pulse"
           onClick={() => {
             if (changePasswordRef.current) {
               changePasswordRef.current.open()
@@ -76,7 +76,7 @@ const SpeedViolation = () => {
             Change Password
           </button>
         </div>
-        <div className="">
+        <div className="mt-2">
           <LogoutButton />
         </div>
       </article>
@@ -93,7 +93,7 @@ const SpeedViolation = () => {
               <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                 <div className="overflow-x-hidden max-h-[30rem] rounded-lg">
                   <table className="min-w-full text-left text-sm font-light">
-                    <thead className="border-b bg-neutral-600 font-medium dark:border-neutral-500">
+                    <thead className="bg-[#3B4953] font-medium dark:border-neutral-500">
                       <tr>
                         <th scope="col" className="px-6 py-4">
                           S/N
@@ -114,9 +114,9 @@ const SpeedViolation = () => {
                     </thead>
                     <tbody>
                       {searchedSpeeds.map((speed, index) => {
-                        let className = "border-b border-neutral-500 ";
-                        if (index % 2 === 0) className += "bg-neutral-700";
-                        else className += "bg-neutral-600";
+                        let className = " ";
+                        if (index % 2 === 0) className += "";
+                        else className += "bg-[#3B4953]";
 
                         const date = new Date(speed.datePath);                        
                         return (

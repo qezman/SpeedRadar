@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword, signOut, updatePassword } from 'firebase/auth';
+import { sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updatePassword } from 'firebase/auth';
 import { auth } from '.';
 
 function handleError(error) {
@@ -80,27 +80,15 @@ export function changePassword(password) {
 	});
 }
 
-/*
-import {
-	sendPasswordResetEmail,
-	signInWithEmailAndPassword,
-	signOut,
-	updateEmail,
-	updatePassword,
-	updateProfile,
-} from 'firebase/auth';
-
-import { auth } from '.';;
-
 // Send password reset link
-export function resetPassword({ email }) {
+export function resetPassword(email) {
 	return new Promise((resolve, reject) => {
 		try {
 			sendPasswordResetEmail(auth, email)
 				.then(() => {
 					resolve({
 						message:
-							'A password reset email was sent to your email address. Follow the instructions ot continue.',
+							'A password reset email was sent to your email address. Follow the instructions to continue.',
 					});
 				})
 				.catch((err) => {
@@ -113,5 +101,3 @@ export function resetPassword({ email }) {
 		}
 	});
 }
-
-*/

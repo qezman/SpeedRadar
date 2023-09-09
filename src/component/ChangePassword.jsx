@@ -73,28 +73,28 @@ const ChangePassword = React.forwardRef((props, ref) => {
         <form
           onSubmit={handleSubmit}
           className={
-            "bg-neutral-500 lg:border lg:rounded lg:shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)] lg:w-7/12 lg:mx-auto lg:py-16"
+            "bg-gray-800 lg:border lg:rounded lg:shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)] lg:w-7/12 lg:mx-auto lg:py-16"
           }
         >
           <div>
             <div className="flex justify-end pr-4 lg:pr-8">
               <span
                 onClick={() => setVisible(false)}
-                className="cursor-pointer  bg-neutral-400 rounded-full p-2 inline-flex justify-center items-center"
+                className="cursor-pointer  bg-gray-400 rounded-full p-2 inline-flex justify-center items-center"
               >
-                <FaTimes className="text-base" />
+                <FaTimes className="text-gray-700" />
               </span>
             </div>
             <h1
               className={
-                "text-4xl lg:text-6xl text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+                "text-gray-400 text-4xl lg:text-6xl text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
               }
             >
               SpeedApp
             </h1>
             <p
               className={
-                "text-2xl lg:text-4xl pt-10 text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+                "text-gray-400 text-2xl lg:text-4xl pt-10 text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
               }
             >
               Change Password
@@ -104,7 +104,7 @@ const ChangePassword = React.forwardRef((props, ref) => {
             <input
               type="password"
               className={
-                "text-gray-500 outline-none bg-[#2E3D72] py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+                "text-gray-500 outline-none bg-gray-800 border rounded py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
               }
               name="password1"
               onChange={handleChange}
@@ -116,7 +116,7 @@ const ChangePassword = React.forwardRef((props, ref) => {
               <input
                 type="password"
                 className={
-                  "text-gray-500 outline-none bg-[#2E3D72] py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+                  "text-gray-500 outline-none bg-gray-800 border rounded py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
                 }
                 name="password2"
                 onChange={handleChange}
@@ -130,7 +130,7 @@ const ChangePassword = React.forwardRef((props, ref) => {
             <button
               disabled={loading}
               className={
-                "outline-none bg-[#2E3D72] text-2xl px-8 py-1 text-white"
+                "outline-none bg-gray-900 border rounded  text-2xl px-8 py-1 text-gray-400"
               }
             >
               {loading ? "Submitting..." : "Confirm"}
