@@ -60,7 +60,7 @@ const ResetPassword = React.forwardRef((props, ref) => {
         <form
           onSubmit={handleSubmit}
           className={
-            "bg-neutral-500 lg:border lg:rounded lg:shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)] lg:w-7/12 lg:mx-auto lg:py-16"
+            "bg-gray-700 lg:border lg:rounded lg:shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)] lg:w-7/12 lg:mx-auto lg:py-16"
           }
         >
           <div>
@@ -91,7 +91,7 @@ const ResetPassword = React.forwardRef((props, ref) => {
             <input
               type="text"
               className={
-                "text-gray-500 outline-none bg-[#2E3D72] py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+                "text-gray-500 outline-none bg-gray-800 py-2 px-3 w-5/12 mx-auto mt-10 shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
               }
               name="email"
               onChange={handleChange}
@@ -104,7 +104,7 @@ const ResetPassword = React.forwardRef((props, ref) => {
             <button
               disabled={loading}
               className={
-                "outline-none bg-[#2E3D72] text-2xl px-8 py-1 text-white"
+                "outline-none bg-gray-800 text-2xl px-8 py-1 text-white"
               }
             >
               {loading ? "Submitting..." : "Reset"}
