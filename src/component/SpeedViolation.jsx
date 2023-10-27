@@ -136,7 +136,7 @@ const SpeedViolation = () => {
                                 if (imageRef) {
                                   imageRef.current.open();
                                 }
-                              }} className="bg-red-900 hover:bg-red-700 text-gray-100 border-none cursor-pointer rounded-md px-4 py-4">View Image</button>
+                              }} className="bg-[#1E282D] hover:bg-gray-500 text-gray-100 border-none cursor-pointer rounded-md px-4 py-4">View Image</button>
                             </td>
                           </tr>
                         );

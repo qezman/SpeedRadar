@@ -31,14 +31,14 @@ const ImageContainer = React.forwardRef((props, ref) => {
                         <div className="flex justify-end pr-4 lg:pr-8">
                             <span
                                 onClick={() => setVisible(false)}
-                                className="cursor-pointer  bg-gray-400 rounded-full p-2 inline-flex justify-center items-center"
+                                className="cursor-pointer bg-gray-400 rounded-full p-2 inline-flex justify-center items-center"
                             >
                                 <FaTimes className="text-gray-700" />
                             </span>
                         </div>
                         <h1
                             className={
-                                "text-gray-400 text-4xl lg:text-6xl text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
+                                "text-gray-400 text-xl lg:text-4xl text-white font-semibold shadow-[0px 4px 4px rgba(0, 0, 0, 0.25)]"
                             }
                         >
                             Speed Violation Image
